@@ -222,6 +222,20 @@ namespace csharpcore
             Assert.Equal(0, Items[0].Quality);
         }
 
+        [Fact]
+        public void BackstagePassesQuality_MaxValueEquals50()
+        {
+            IList<Item> Items = new List<Item>
+            {
+                new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 50 }
+            };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.Equal("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
+            Assert.Equal(14, Items[0].SellIn);
+            Assert.Equal(50, Items[0].Quality);
+        }
+
         // Conjured - ΔQuality(Conjured) = 2*ΔQuality(NormalItem)
         [Fact]
         public void ConjuredQualityAndSellIn_DecreaseBy2_WhenSellInAbove0()
