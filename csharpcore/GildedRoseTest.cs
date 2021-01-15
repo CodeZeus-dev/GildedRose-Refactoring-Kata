@@ -118,11 +118,6 @@ namespace csharpcore
         }
 
         // Backstage passes - As SellIn decreases, Quality increases
-        /* 
-         * if SellIn <= 10 :: ΔQuality = 2
-         * if SellIn <= 5 :: ΔQuality = 3
-         * if SellIn <= 0 :: Quality = 0
-         */
 
         [Fact]
         public void BackstagePassesQuality_IncreasesBy1_WhenSellInAbove10()
